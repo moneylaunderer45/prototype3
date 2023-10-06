@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     private float startDelay = 2;
     private float repeatRate = 2; 
     void Start(){
-        InvokeRepeating("Spawnobstacle", startDelay, reapeatRate); }
+        InvokeRepeating("Spawnobstacle", startDelay, repeatRate); }
 
     void SpawnObstacle () {
         Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation); }

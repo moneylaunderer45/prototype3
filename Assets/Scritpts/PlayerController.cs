@@ -9,16 +9,16 @@ public class PlayerController : MonoBehaviour
     public float jumpforce;
     public float gravityModifier;
     void Start() {
-            playerRb = GetComponent<Rigidbody>();
-            Physics.gravity *= gravityModifier; }
+     playerRb = GetComponent<Rigidbody>();
+     Physics.gravity *= gravityModifier; }
 
     // Update is called once per frame
     public bool isOnGround = true;
     void Update(){
     if (Input.GetKeyDown(KeyCode.Space) && isOnGround) {
       playerRb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
-            isOnGround = false; } }
+      isOnGround = false; } }
 
     private void OnCollisionEnter(Collision collision) {
-      isOnGround = true; }
+     isOnGround = true; }
 } 
