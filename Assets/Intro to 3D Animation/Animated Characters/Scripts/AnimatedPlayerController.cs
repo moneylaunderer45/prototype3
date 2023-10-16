@@ -16,14 +16,16 @@ public class AnimatedPlayerController : MonoBehaviour
     public float jumpForce;
     public bool isOnGround;
 
+    // Particles 
+    public ParticleSystem dustCloud;
+
 
     // Start is called before the first frame update
     void Start()
     {
         //Get Components
         rb = GetComponent<Rigidbody>();
-
-
+        dustCloud.Stop();
     }
 
     // Update is called once per frame
@@ -43,8 +45,16 @@ public class AnimatedPlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
-
-
+       
+        // Activate Dust Cloud
+        if (verticalInput > 0 && !dustCloud.isPlaying)
+        {
+            dustCloud.Play();
+        }
+        else if (verticalInput <= 8)
+        {
+            dustCloud.Stop();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
