@@ -42,8 +42,8 @@ public class AnimatedPlayerController : MonoBehaviour
         //Jumping
         if(Input.GetKeyDown(KeyCode.Space)  && isOnGround)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
+         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+         isOnGround = false;
         }
        
         // Activate Dust Cloud
@@ -61,7 +61,7 @@ public class AnimatedPlayerController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
-            isOnGround = true;
+         isOnGround = true;
         }
     }
 }
